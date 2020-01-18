@@ -68,6 +68,9 @@ function active_next_email_in_queue() {
         <td>Subject: ${data.subject}</td>
         <td>Sent Date: ${data.sendDate}</td>
       </tr>
+      <tr>
+        <td>Attachment: ${data.attachment}</td>
+      </tr>
     </table>
   `)
 
