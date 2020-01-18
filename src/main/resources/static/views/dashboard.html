@@ -2,103 +2,161 @@
 <html>
 
 <head>
-    <meta charset='utf=8' />
-    <title> Email Dashboard </title>
+  <meta charset='utf=8' />
+  <title> Email Dashboard </title>
 
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- MaterializeCSS Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- MaterializeCSS Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <style>
-      body { display: flex; flex-direction: column;}
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
 
-      body, html {height: 100%;}
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    body,
+    html {
+      height: 100%;
+    }
+
+    nav {
+      flex: 0 0 64px;
+    }
+
+    main {
+      flex: 1 1 100%;
+    }
+
+    footer {
+      flex: 0 0 60px;
+    }
+
+    #email-queue .card {
+      margin: 0px
+    }
+
+    #email-queue .card-panel {
+      margin: 0px
+    }
 
 
-      nav {flex: 0 0 64px;}
-      main { flex: 1 1 100%; }
-      footer { flex: 0 0 60px; }
-      .container {flex-direction: row | row-reverse | column | column-reverse;}
-      
-      .email-queue  { margin: 0px}
-      .email-queue .card-panel { margin: 0px}
+    .card.active {
+      z-index: 1;
+      /* z-depth-1 */
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .card.active>.card-panel {
+      /* blue lighten-5 */
+      background-color: #E3F2FD;
+    }
+
+    #email-view {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
 
 
-    </style>
+    /* Fill the screen with the email view */
+    main>div {
+      height: 100%;
+    }
+
+    #email-info {
+      flex: 1 1 105px;
+    }
+
+    #email-body {
+      flex: 1 1 100%;
+    }
+
+    #email-actions {
+      flex: 1 1 40px;
+      margin-bottom: 10px;
+    }
+  </style>
 
 </head>
 
 <body>
 
-<nav>
-    <div class="nav-wrapper">
-        <a href="#" class="brand-logo">Email Dashboard</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down"></ul>
+  <nav>
+    <div class="nav-wrapper blue darken-2">
+      <a href="#" class="brand-logo center">Email Dashboard</a>
     </div>
-</nav>
+  </nav>
 
-<main class='grey lighten-5'>
+  <main class='grey lighten-5'>
     <div class="row">
-        <div class="section offset-s3"></div>
-        <div class="col s3">
-            <div class="row">
-                <div class="email-queue card">
-                    <div class="card-panel white">
-        <span class="column">Email Queue
-        </span>
-                    </div>
-                </div>
-                <div class="email-queue card ">
-                    <div class="card-panel white">
-        <span class="column">Us in black total ten window card.
-        </span>
-                    </div>
-                </div>
-                <div class="email-queue card">
-                    <div class="card-panel white">
-              <span class="column">Degree should treatment director.
-              </span>
-                    </div>
-                </div>
-                <div class="email-queue card ">
-                    <div class="card-panel white">
-              <span class="column">Blue item ever rock.
-              </span>
-                    </div>
-                </div>
-                <div class="email-queue card ">
-                    <div class="card-panel white">
-              <span class="column">Hour tech pretty against effect fish.
-              </span>
-                    </div>
-                </div>
-                <div class="email-queue card ">
-                    <div class="card-panel white">
-              <span class="column">Article sing spend
-              </span>
-                    </div>
-                </div>
-            </div>
+      <div class="col s3" id='email-queue'>
+        <div class='center'>
+          <h3>Email Queue</h3>
+        </div>
+        <div class="card active">
+          <div class="card-panel">
+            <span class="column">Us in black total ten window card. </span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-panel">
+            <span class="column">Degree should treatment director. </span>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-panel">
+            <span class="column">Blue item ever rock. </span>
+          </div>
+        </div>
+        <div class="card ">
+          <div class="card-panel">
+            <span class="column">Hour tech pretty against effect fish. </span>
+          </div>
+        </div>
+        <div class=" card ">
+          <div class="card-panel">
+            <span class="column">Article sing spend </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s9" id='email-view'>
+        <div id='email-info'>
+          <table>
+            <tr>
+              <td>Sender: abc.xyz@qwe.npc</td>
+              <td>Recipient: 123@ant.com</td>
+            </tr>
+            <tr>
+              <td>Subject: Us in black total ten window card.</td>
+              <td>Sent Date: 2019-08-12</td>
+            </tr>
+          </table>
         </div>
 
-        <div class="col s9">
-            <a class="waves-effect waves-light btn-small">Review</a>
-            <a class="waves-effect waves-light btn-small"><i class="material-icons left"></i>Delete</a>
-            <a class="waves-effect waves-light btn-small"><i class="material-icons right"></i>Send</a>
-
+        <div class='card-panel' id='email-body'>
+          Debate affect stuff read nice tough ready various.
         </div>
 
+        <div class='center' id='email-actions'>
+          <a class="waves-effect waves-light btn green">(A)pprove</a>
+          <a class="waves-effect waves-light btn red">(S)pam</a>
+          <a class="waves-effect waves-light btn yellow darken-3">(D)efer</a>
+        </div>
+      </div>
+    </div>
+  </main>
 
 
-
-</main>
-
-
-<footer class='page-footer' style='text-align: center;'>
+  <footer class='page-footer blue darken-2' style='text-align: center;'>
     Copyright &copy;Nobody Inc 2020-2020
-</footer>
+  </footer>
 
 
 
