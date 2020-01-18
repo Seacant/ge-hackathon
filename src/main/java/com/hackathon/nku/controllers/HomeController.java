@@ -16,6 +16,4 @@ public class HomeController {
         return "login";
     }
 
-    @RequestMapping("/profile")
-    public String profile(){ return "profile"; }
 }

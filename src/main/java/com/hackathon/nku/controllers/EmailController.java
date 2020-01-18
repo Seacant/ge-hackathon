@@ -27,7 +27,14 @@ class EmailController {
     Email email = repository.findById(id).get();
 
     email.setIsSpam(newEmail.getIsSpam());
+    repository.save(email);
 
+    return email;
+  }
+
+  @GetMapping("/email/{id}")
+  Email Email(@RequestBody Email deletedEmail, @PathVariable Integer id) {
+    Email email = repository.findById(id).get();
     return email;
   }
 
