@@ -22,7 +22,7 @@ public class SecSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(final AuthenticationManagerBuilder auth) throws Exception {
       auth.jdbcAuthentication()
           .dataSource(dataSource)
-          .usersByUsernameQuery("select email, salted_pass as password, enabled "
+          .usersByUsernameQuery("select email, saltedPass as password, enabled "
           + "from users "
           + "where email = ?")
           .authoritiesByUsernameQuery("select email, authority from authorities where email = ?");
