@@ -1,0 +1,13 @@
+spring.mvc.view.prefix = /views/
+spring.mvc.view.suffix = .html
+
+spring.datasource.platform=mysql
+
+spring.datasource.url=jdbc:mysql://ge-hackathon-db.cypqk7ramvbo.us-east-1.rds.amazonaws.com:3306/spam_app
+spring.datasource.username=
+spring.datasource.password=
+
+spring.datasource.initialization-mode=always
+spring.jpa.hibernate.ddl-auto=none
+
+spring.profiles.active=mysql
