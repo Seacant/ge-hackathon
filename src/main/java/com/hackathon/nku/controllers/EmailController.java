@@ -1,6 +1,7 @@
 package com.hackathon.nku.controllers;
 
 import com.hackathon.nku.repositories.EmailRepository;
+import javax.transaction.Transactional;
 import com.hackathon.nku.models.Email;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
@@ -39,14 +40,15 @@ class EmailController {
   }
 
   @PutMapping("/email/next")
-  Email get_next_set(@RequestBody Email newEmail){
+  Email get_next_set(){
     SecurityContext context = SecurityContextHolder.getContext();
     Authentication auth = context.getAuthentication();
 
-    Email email = repository.findFirstByAssignedTo(null);
-    email.setAssignedTo(auth.getName());
-    repository.save(email);
-
-    return email;
+    synchronized(this) {
+      Email email = repository.findFirstByAssignedTo(null);
+      email.setAssignedTo(auth.getName());
+      repository.save(email);
+      return email;
+    }
   }
 }

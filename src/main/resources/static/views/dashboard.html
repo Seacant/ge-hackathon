@@ -14,6 +14,8 @@
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
     integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
 
+  <script src="../js/app.js"></script>
+
   <style>
     body {
       display: flex;
@@ -35,6 +37,10 @@
 
     footer {
       flex: 0 0 60px;
+    }
+
+    #email-queue {
+      max-height: 81vh;
     }
 
     #email-queue .card {
@@ -99,55 +105,18 @@
         <div class='center'>
           <h3>Email Queue</h3>
         </div>
-        <div class="card active">
-          <div class="card-panel">
-            <span class="column">Us in black total ten window card. </span>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-panel">
-            <span class="column">Degree should treatment director. </span>
-          </div>
-        </div>
-        <div class="card ">
-          <div class="card-panel">
-            <span class="column">Blue item ever rock. </span>
-          </div>
-        </div>
-        <div class="card ">
-          <div class="card-panel">
-            <span class="column">Hour tech pretty against effect fish. </span>
-          </div>
-        </div>
-        <div class=" card ">
-          <div class="card-panel">
-            <span class="column">Article sing spend </span>
-          </div>
-        </div>
+
       </div>
 
       <div class="col s9" id='email-view'>
-        <div id='email-info'>
-          <table>
-            <tr>
-              <td>Sender: abc.xyz@qwe.npc</td>
-              <td>Recipient: 123@ant.com</td>
-            </tr>
-            <tr>
-              <td>Subject: Us in black total ten window card.</td>
-              <td>Sent Date: 2019-08-12</td>
-            </tr>
-          </table>
-        </div>
+        <div id='email-info'></div>
 
-        <div class='card-panel' id='email-body'>
-          Debate affect stuff read nice tough ready various.
-        </div>
+        <div class='card-panel' id='email-body'> </div>
 
         <div class='center' id='email-actions'>
-          <a class="waves-effect waves-light btn green">(A)pprove</a>
-          <a class="waves-effect waves-light btn red">(S)pam</a>
-          <a class="waves-effect waves-light btn yellow darken-3">(D)efer</a>
+          <a id='approve' class="waves-effect waves-light btn green">(A)pprove</a>
+          <a id='spam'    class="waves-effect waves-light btn red">(S)pam</a>
+          <a id='defer'   class="waves-effect waves-light btn yellow darken-3">(D)efer</a>
         </div>
       </div>
     </div>
@@ -157,8 +126,6 @@
   <footer class='page-footer blue darken-2' style='text-align: center;'>
     Copyright &copy;Nobody Inc 2020-2020
   </footer>
-
-
 
 </body>
 
